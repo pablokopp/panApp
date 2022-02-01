@@ -4,6 +4,8 @@ import {theme} from '../../constants/colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexGrow: 1,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.colorSecondary,

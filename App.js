@@ -6,11 +6,11 @@
  * @flow strict-local
  */
 
+import AppNavigation from './src/navigation/AppNavigation';
 import React from 'react';
-import ShopNavigation from './src/navigation/ShopNavigation';
 
 const App = () => {
-  return <ShopNavigation />;
+  return <AppNavigation />;
 };
 
 export default App;

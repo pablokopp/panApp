@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: theme.colorSecondary,
   },
+  textNo: {
+    fontSize: 16,
+    fontWeight: '700',
+    opacity: 0.6,
+  },
 });
 
 export default styles;
