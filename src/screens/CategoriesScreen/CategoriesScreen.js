@@ -1,27 +1,30 @@
-import {Button, FlatList, SafeAreaView, Text, View} from 'react-native';
+import {FlatList, SafeAreaView, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 
-import {CATEGORIES} from '../../utils/data/categories';
 import CategoryItem from '../../components/CategoryItem/CategoryItem';
 import React from 'react';
+import {selectCategory} from '../../store/actions/category.action';
 import styles from './style';
-import {theme} from '../../constants/colors';
 
 const CategoriesScreen = ({navigation}) => {
   const handleSelectedCategory = item => {
-    //le estoy pasando a la vista por parametros distinta data, luego esto lo recibo en la vista como route.params
+    dispatch(selectCategory(item.id));
     navigation.navigate('Products', {
-      categoryID: item.id,
       name: item.title,
     });
   };
   const renderCategoryItem = ({item}) => {
     return <CategoryItem item={item} onSelected={handleSelectedCategory} />;
   };
+
+  //redux aca
+  const dispatch = useDispatch();
+  const categories = useSelector(state => state.categories.categories);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
         <FlatList
-          data={CATEGORIES}
+          data={categories}
           renderItem={renderCategoryItem}
           keyExtractor={item => item.id}
         />
